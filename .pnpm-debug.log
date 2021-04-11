@@ -1,0 +1,19 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 error pnpm": {
+    "message": {
+      "name": "JSONError",
+      "fileName": "/Users/yogasetiawan/code/playground/discordSync/package.json",
+      "codeFrame": "\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[32m\"dependencies\"\u001b[39m\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 13 |\u001b[39m     \u001b[32m\"discord.js\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^12.5.3\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m   }\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 15 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 16 |\u001b[39m\u001b[0m",
+      "code": "ERR_PNPM_JSON_PARSE"
+    },
+    "err": {
+      "name": "JSONError",
+      "message": "Unexpected token \"}\" (0x7D) in JSON at position 276 while parsing near \"...d.js\\\": \\\"^12.5.3\\\",\\n  }\\n}\\n\" in /Users/yogasetiawan/code/playground/discordSync/package.json \n\n\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[32m\"dependencies\"\u001b[39m\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 13 |\u001b[39m     \u001b[32m\"discord.js\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^12.5.3\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m   }\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 15 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 16 |\u001b[39m\u001b[0m\n",
+      "code": "ERR_PNPM_JSON_PARSE",
+      "stack": "JSONError: Unexpected token \"}\" (0x7D) in JSON at position 276 while parsing near \"...d.js\\\": \\\"^12.5.3\\\",\\n  }\\n}\\n\" in /Users/yogasetiawan/code/playground/discordSync/package.json \n\n\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[32m\"dependencies\"\u001b[39m\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 13 |\u001b[39m     \u001b[32m\"discord.js\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^12.5.3\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m   }\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 15 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 16 |\u001b[39m\u001b[0m\n\n    at parseJson (/opt/homebrew/Cellar/pnpm/5.18.8/libexec/lib/node_modules/pnpm/dist/pnpm.js:3050:25)\n    at Object.readJsonFile (/opt/homebrew/Cellar/pnpm/5.18.8/libexec/lib/node_modules/pnpm/dist/pnpm.js:42869:15)\n    at async Object.tryReadProjectManifest (/opt/homebrew/Cellar/pnpm/5.18.8/libexec/lib/node_modules/pnpm/dist/pnpm.js:43133:28)\n    at async Object.tryReadProjectManifest (/opt/homebrew/Cellar/pnpm/5.18.8/libexec/lib/node_modules/pnpm/dist/pnpm.js:43347:56)\n    at async Object.handler [as default] (/opt/homebrew/Cellar/pnpm/5.18.8/libexec/lib/node_modules/pnpm/dist/pnpm.js:113971:44)\n    at async Timeout._onTimeout (/opt/homebrew/Cellar/pnpm/5.18.8/libexec/lib/node_modules/pnpm/dist/pnpm.js:123310:22)"
+    }
+  }
+}
