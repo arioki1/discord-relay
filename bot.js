@@ -19,14 +19,28 @@ client.on('message', async msg => {
     let {id} = msg.channel
     console.log(id)
     if(id == DISCORD_SYNC_CHANNEL_ID){
-        sendTelegramAoi(msg.content)
+        sendTelegramAoi(msg)
     }
     if (msg.content === '#ping') {
         msg.reply('pong');
     }
 });
 
-const sendTelegramAoi = text =>{
+const sendTelegramAoi = msg => {
+    let {content, attachments} = msg
+    let arrayAttachment = Array.from(attachments.values());
+    let urlAttachment = null
+    if(arrayAttachment.length !== 0){
+        const {attachment} = arrayAttachment[0]
+        urlAttachment = attachment
+    }
+    if (!content && !urlAttachment) return
+
+    content = content.replaceAll("|", "")
+        .replaceAll("*","")
+        .replaceAll(/@.[a-zA-Z0-9._-]*/gm, "")
+        .replaceAll(/>|<|~|`|/gm, "")
+
     const instance = axios.create({
         baseURL: BASE_URL_TELEGRAM,
         headers: {
@@ -34,10 +48,11 @@ const sendTelegramAoi = text =>{
         },
         timeout: 10000,
     });
-
+    if(!content) content= "Attachment"
     let data = {
         chat_id: TELEGRAM_CHANNEL_ID_WARBAR_AOI,
-        text: text,
+        parse_mode: 'markdown',
+        text: (urlAttachment) ? `[ ](${urlAttachment}) ${content}` : `${content}`
     }
     return instance.post('/sendMessage', data)
 }
