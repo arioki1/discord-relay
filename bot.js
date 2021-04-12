@@ -36,7 +36,7 @@ const sendTelegramAoi = msg => {
     }
     if (!content && !urlAttachment) return
 
-    content = content.replaceAll(/|/gm, "")
+    content = content.replace(/\|/gm, "")
         .replace(/\*/gm,"")
         .replace(/@.[a-zA-Z0-9._-]*/gm, "")
         .replace(/>|<|~|`|/gm, "")
