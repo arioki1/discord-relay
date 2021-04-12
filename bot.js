@@ -36,10 +36,10 @@ const sendTelegramAoi = msg => {
     }
     if (!content && !urlAttachment) return
 
-    content = content.replaceAll("|", "")
-        .replaceAll("*","")
-        .replaceAll(/@.[a-zA-Z0-9._-]*/gm, "")
-        .replaceAll(/>|<|~|`|/gm, "")
+    content = content.replaceAll(/|/gm, "")
+        .replace(/\*/gm,"")
+        .replace(/@.[a-zA-Z0-9._-]*/gm, "")
+        .replace(/>|<|~|`|/gm, "")
 
     const instance = axios.create({
         baseURL: BASE_URL_TELEGRAM,
