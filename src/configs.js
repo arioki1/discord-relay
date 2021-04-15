@@ -14,12 +14,11 @@ while ((m = regex.exec(CHAT_MAPPING)) !== null) {
     let target = null
 
     m.forEach((match, groupIndex) => {
-        if(groupIndex === 1) key= parseInt(match)
+        if(groupIndex === 1) key= match
         if(groupIndex === 2) target= match
     });
 
    MAPPING[key] = target
 }
-
 exports.CHATS = MAPPING
 
