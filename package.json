@@ -2,10 +2,11 @@
   "name": "discord-sync",
   "version": "1.0.0",
   "description": "",
-  "main": "bot.js",
+  "main": "src/bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "node src/bot.js",
+    "start:web": "node src/server.js",
     "heroku:stop": "heroku ps:scale web=0",
     "heroku:restart": "heroku restart",
     "heroku:logs": "heroku logs --tail"
