@@ -1,10 +1,18 @@
 const {MessageEmbed, Client} = require('discord.js');
 const {sendMsgTelegram} = require("./utils");
 const {CHATS} = require("./configs");
-const client = new Client();
 require('dotenv').config()
+
+const allowUserBotting = require('discord.js.userbot');
+const {sendMsgDiscord} = require("./utils");
+const client = new Client({ _tokenType: '' });
+
+allowUserBotting(client);
+allowUserBotting(client,"../../node_modules");
+
 const {
     DISCORD_BOT_TOKEN,
+    DISCORD_AUTHOR_ID
 } = process.env
 
 client.on('ready', () => {
@@ -14,9 +22,17 @@ client.on('ready', () => {
 client.on('message', async msg => {
     let {id, name, type} = msg.channel
     if(CHATS[id]){
-        sendMsgTelegram(msg, CHATS[id])
+        if(CHATS[id]?.targetTelegram !== '') sendMsgTelegram(msg, CHATS[id]?.targetTelegram)
+        if(CHATS[id]?.targetDiscord !== '') {
+            try {
+                sendMsgDiscord(client, msg, CHATS[id]?.targetDiscord)
+                    .then(()=>{})
+                    .catch(()=>{})
+            }catch (e) {}
+        }
     }
-    if (msg.content === '!!ping') {
+
+    if (msg.content === '!!ping' && msg.author.id === DISCORD_AUTHOR_ID) {
        try{
            msg.channel.send(`pong`);
        }catch (e) {
@@ -24,7 +40,7 @@ client.on('message', async msg => {
        }
     }
 
-    if (msg.content === '!!channel') {
+    if (msg.content === '!!channel' && msg.author.id === DISCORD_AUTHOR_ID) {
         try{
             const embed = new MessageEmbed()
                 .addFields(
@@ -40,4 +56,3 @@ client.on('message', async msg => {
 });
 
 client.login(DISCORD_BOT_TOKEN);
-
